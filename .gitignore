@@ -5,3 +5,4 @@ requirements.txt
 migrations
 .vscode
 __pycache__
+venv
