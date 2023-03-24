@@ -1,4 +1,4 @@
-from debug_project_app import app, db, login
+from app import app, db, login
 
 # Import for Werkzeug Security
 from werkzeug.security import generate_password_hash, check_password_hash

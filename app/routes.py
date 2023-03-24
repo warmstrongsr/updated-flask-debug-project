@@ -1,11 +1,11 @@
-from debug_project_app import app, Message, mail
+from app import app, Message, mail
 from flask import render_template, request, redirect, url_for
 
 # Import for Forms
-from debug_project_app.forms import UserInfoForm, PostForm, LoginForm
+from app.forms import UserInfoForm, PostForm, LoginForm
 
 # Import for Models
-from debug_project_app.models import User, Post, check_password_hash
+from app.models import User, Post, check_password_hash
 
 # Import for Flask Login - login_required, login_user,current_user, logout_user
 from flask_login import login_required,login_user, current_user,logout_user
@@ -32,13 +32,7 @@ def register():
         db.session.add(user)
         # Save info into database
         db.session.commit()
-
-        # Flask Email Sender 
-        msg = Message(f'Thanks for Signing Up! {email}', recipients=[email])
-        msg.body = ('Congrats on signing up! Looking forward to your posts!')
-        msg.html = ('<h1> Welcome to debug_project_app!</h1>' '<p> This will be fun! </p>')
-
-        mail.send(msg)
+        
     return render_template('register.html',form = form)
 
 # Post Submission Route
