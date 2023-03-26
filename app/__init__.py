@@ -14,7 +14,9 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Login Config
-login = LoginManager(pp)
+login = LoginManager(app)
 login.login_view = 'login' # Specify what page to load for NON-authenticated Users
+
+login.login_message_category = 'danger'
 
 from app import routes,models
